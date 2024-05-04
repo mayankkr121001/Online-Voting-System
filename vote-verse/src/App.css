@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=M+PLUS+Rounded+1c&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body, input, button{
+  font-family: "Roboto", sans-serif;
+}
+
+/* NAVBAR */
+
+.navBar{
+  height: 110px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0px 100px;
+}
+
+#logoImg{
+  width: 70px;
+  height: 70px;
+}
+
+/* Section */
+
+.section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 20px auto;
+}
+.info{
+  margin-right: 76px;
+}
+.info h1{
+  font-size: 55px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #465f71;
+}
+.infoPara{
+  font-size: 15px;
+  color: #88a7bb;
+  padding: 5px 0px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.lineDesign{
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0px;
+}
+.lineDesign div{
+  width: 100px;
+  height: 5px;
+  
+}
+.line1{
+  background-color: #465f71;
+}
+.line2{
+  background-color: #e2474b;
+}
+.line3{
+  background-color: #ffbfab;
+}
+
+
+.clickToLoginBtn{
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 50px;
+  background-color: #e2474b;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: 0.3s ease-in-out 0s;
+}
+.clickToLoginBtn:hover{
+  background-color: #db585c;
+}
+.clickToLoginBtn:active{
+  transform: scale(0.95);
+}
+
+.landingImage img{
+ height: 500px;
+ width: 680px;
+}
