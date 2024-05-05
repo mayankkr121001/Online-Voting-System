@@ -10,13 +10,32 @@ body, input, button{
   font-family: "Roboto", sans-serif;
 }
 
+/* WrongRouteDiv */
+.wrongRouteDiv{
+  text-align: center;
+  color: #465f71;
+  letter-spacing: 2px;
+  margin-top: 200px;
+}
+.wrongRouteDiv h1{
+  font-size: 150px;
+}
+
+
 /* NAVBAR */
 
 .navBar{
-  height: 110px;
+  height: 140px;
+  width: 95%;
+  margin: auto;
   display: flex;
-  align-items: flex-end;
-  padding: 0px 100px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+}
+.navBar h1{
+  letter-spacing: 2px;
+  color: #465f71;
 }
 
 #logoImg{
@@ -26,29 +45,30 @@ body, input, button{
 
 /* Section */
 
-.section{
+.landingSection{
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80%;
   margin: 20px auto;
 }
-.info{
+.landingInfo{
   margin-right: 76px;
 }
-.info h1{
+.landingInfo h1{
   font-size: 55px;
   font-weight: 700;
   letter-spacing: 2px;
   color: #465f71;
 }
-.infoPara{
+.landingInfoPara{
   font-size: 15px;
   color: #88a7bb;
   padding: 5px 0px;
   font-weight: 500;
   letter-spacing: 1px;
 }
+
 .lineDesign{
   display: flex;
   flex-direction: row;
@@ -59,16 +79,15 @@ body, input, button{
   height: 5px;
   
 }
-.line1{
+.lineDesign .line1{
   background-color: #465f71;
 }
-.line2{
+.lineDesign .line2{
   background-color: #e2474b;
 }
-.line3{
+.lineDesign .line3{
   background-color: #ffbfab;
 }
-
 
 .clickToLoginBtn{
   letter-spacing: 2px;
@@ -91,4 +110,124 @@ body, input, button{
 .landingImage img{
  height: 500px;
  width: 680px;
+}
+
+/* LOGIN PAGE */
+
+.loginPageSection{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  margin: 20px auto;
+}
+
+.loginPageImage img{
+  width: 670px;
+  height: 100%;
+}
+
+.loginDiv{
+  width: 40%;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loginIcon{
+  height: 45px;
+  width: 45px;
+}
+.loginDiv h1{
+  color: #465f71;
+  padding-bottom: 30px;
+}
+.loginDiv input{
+  width: 100%;
+  padding: 12px 15px;
+  letter-spacing: 1px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #b3cedf;
+  /* border-radius: 5px; */
+  color: #465f71;
+  font-size: 15px;
+}
+.loginDiv input::placeholder{
+  color: #465f71;
+  font-size: 14px;
+}
+.loginDiv input:active{
+  border: 1px solid #b3cedf;
+}
+
+.LoginBtn{
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 10px 80px;
+  margin-top: 30px;
+  background-color: #e2474b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out 0s;
+}
+.LoginBtn:hover{
+  background-color: #db585c;
+}
+.LoginBtn:active{
+  transform: scale(0.95);
+}
+
+/* Voting page */
+
+.votingSection > h1 {
+  text-align: center;
+  letter-spacing: 2px;
+  color: #465f71;
+  padding-bottom: 20px;
+}
+
+.candidateBox{
+  width: 90%;
+  margin:20px  auto;
+  padding: 20px 40px;
+  height: fit-content;
+  background-color: #c3deed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.CandidateDetails{
+  display: flex;
+  align-items: center;
+}
+.CandidateDetails img{
+  width: 100px;
+  height: 100px;
+}
+.CandidateDetails h2{
+  color: #465f71;
+  letter-spacing: 1px;
+  padding-left: 20px;
+}
+
+.voteBtn{
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 10px 80px;
+  background-color: #e2474b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out 0s;
+}
+.voteBtn:hover{
+  background-color: #db585c;
+}
+.voteBtn:active{
+  transform: scale(0.95);
 }
