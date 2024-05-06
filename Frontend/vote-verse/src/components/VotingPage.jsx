@@ -10,6 +10,7 @@ const VotingPage = () => {
                 <Navbar />
                 <div className="votingSection">
                     <h1>Running For President</h1>
+                    <div className="timer">00:00:00</div>
                     <div className="candidatesSection">
                         <div className="candidateBox">
                             <div className='CandidateDetails'>

@@ -99,6 +99,7 @@ body, input, button{
   border: none;
   border-radius: 20px;
   transition: 0.3s ease-in-out 0s;
+  cursor: pointer;
 }
 .clickToLoginBtn:hover{
   background-color: #db585c;
@@ -183,12 +184,23 @@ body, input, button{
 }
 
 /* Voting page */
-
+.votingSection{
+  position: relative;
+}
 .votingSection > h1 {
   text-align: center;
   letter-spacing: 2px;
   color: #465f71;
   padding-bottom: 20px;
+
+}
+.timer{
+  position: absolute;
+  top: -1.5%;
+  right: 10%;
+  font-size: 40px;
+  color: #465f71;
+  font-weight: 500;
 }
 
 .candidateBox{
@@ -196,7 +208,7 @@ body, input, button{
   margin:20px  auto;
   padding: 20px 40px;
   height: fit-content;
-  background-color: #c3deed;
+  background-color: #d4e4f3;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -230,4 +242,30 @@ body, input, button{
 }
 .voteBtn:active{
   transform: scale(0.95);
+}
+
+/* Thankyou page */
+.thanksDiv{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.thankyouImage img{
+    position: relative;
+  }
+
+.thankYouText{
+  font-size: 40px;
+  color: #465f71;
+}
+.votedText{
+  font-size: 20px;
+  color: #809aad;
+}
+.thankyouTextDiv{
+  position: absolute;
+  bottom: 190px;
+  text-align: center;
 }

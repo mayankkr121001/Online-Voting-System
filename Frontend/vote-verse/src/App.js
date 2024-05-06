@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage';
 import Login from './components/Login';
 import WrongRouteError from './components/WrongRouteError';
 import VotingPage from './components/VotingPage';
+import ThankYouPage from './components/ThankYouPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route exact path='/' element={<LandingPage/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/vote' element={<VotingPage/>} />
+        <Route path='/thanks' element={<ThankYouPage/>} />
         <Route path='*' element={<WrongRouteError/>} />
       </Routes>
     </div>
