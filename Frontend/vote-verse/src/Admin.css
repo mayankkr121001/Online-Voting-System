@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=M+PLUS+Rounded+1c&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button {
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ADMINNAVBAR */
+
+.navContainer {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  background-color: #2d3d48;
+}
+
+.navContainer h1 {
+  letter-spacing: 2px;
+  color: white;
+}
+
+#logoImg {
+  width: 70px;
+  height: 70px;
+}
+
+/* Sidebar */
+.sideBarContainer {
+  /* height: fit-content;  */
+  min-height: calc(100vh - 100px);
+  width: 17%;
+  background-color: #1c2225;
+  color: #c4c4c4;
+  padding: 30px 0px;
+}
+
+.adminImage {
+  text-align: center;
+}
+
+.adminImage img {
+  width: 100px;
+  height: 100px;
+
+}
+
+.sideBarContainer h1 {
+  text-align: center;
+  padding-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.unorderdList {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 17px;
+}
+
+.sideBarLink {
+  text-decoration: none;
+  color: #c4c4c4;
+}
+
+.unorderdList li {
+  list-style: none;
+  font-size: 18px;
+
+}
+
+.unorderdList li:hover {
+  color: #ececec;
+  cursor: pointer;
+}
+
+.unorderdList li:active {
+  transform: scale(0.99);
+}
+
+/* Admin Dashboard */
+.adminDashboardDiv {
+  display: flex;
+}
+
+.dashboardSection {
+  padding: 50px;
+  color: #2d3d48;
+  letter-spacing: 2px;
+  width: 83%;
+}
+
+.dashboardDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboardCard {
+  margin-top: 50px;
+  height: fit-content;
+  width: fit-content;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #fbe8cf;
+  padding: 25px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Voters Page */
+.votersDiv,
+.candidatesDiv {
+  display: flex;
+}
+
+.votersSection,
+.candidatesSection {
+  padding: 50px;
+  color: #2d3d48;
+  letter-spacing: 2px;
+  width: 83%;
+  position: relative;
+}
+
+.votersList,
+.candidatesList {
+  margin: 30px 0px;
+  width: 100%;
+}
+
+.voterListHeading,
+.candidateListHeading {
+  text-align: center;
+}
+
+.addVoterBtn,
+.addCandidateBtn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #e2474b;
+  color: white;
+  border-radius: 3px;
+}
+
+.votersList table,
+.candidatesList table,
+.votingStatusList table {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+.voterHeading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.voter {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+
+.deleteBtn {
+  padding: 5px 40px;
+  background-color: #e2474b;
+  border: none;
+  color: white;
+  border-radius: 3px;
+}
+
+th {
+  height: 60px;
+}
+
+td {
+  text-align: center;
+  height: 40px;
+}
+
+/* AddVoterForm */
+.addFormContainer {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.addFormDiv {
+  background-color: #d4e4f3;
+  width: 500px;
+  height: fit-content;
+  padding: 0px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.closeBtn {
+  width: 100%;
+  color: #e2474b;
+  font-size: 20px;
+  text-align: end;
+}
+
+.closeBtn h2 {
+  cursor: pointer;
+}
+
+.addFormDiv input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  color: #2d3d48;
+}
+
+.addFormDiv button {
+  padding: 10px 40px;
+  font-size: 16px;
+  background-color: #e2474b;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  width: 200px;
+  margin-top: 20px;
+}
+
+/* Scheduler */
+
+.schedulerDiv {
+  display: flex;
+}
+
+.schedulerSection {
+  padding: 50px;
+  color: #2d3d48;
+  letter-spacing: 2px;
+  width: 83%;
+}
+
+.scheduleInputButtonDiv {
+  padding: 30px 0px;
+  width: 250px;
+}
+
+.scheduleInputDiv {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scheduleInputDiv input {
+  margin-left: 20px;
+}
+
+.scheduleBtnDiv button {
+  padding: 10px 30px;
+  font-size: 16px;
+  background-color: #e2474b;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+/* Voting Status */
+.votingStatusDiv {
+  display: flex;
+}
+
+.votingStatusSection {
+  padding: 50px;
+  color: #2d3d48;
+  letter-spacing: 2px;
+  width: 83%;
+}
+
+.votingStatusList {
+  margin: 30px 0px;
+  width: 100%;
+}
+
+.votingStatusList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+/* Result */
+.resultDiv {
+  display: flex;
+}
+
+.resultSection {
+  padding: 50px;
+  color: #2d3d48;
+  letter-spacing: 2px;
+  width: 83%;
+}
+
+.resultCandidateList {
+  margin: 30px 0px;
+  width: 100%;
+}
+
+.resultCandidateList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.resultWinnerdiv h2 {
+  margin-bottom: 20px;
+}
+
+.resultWinnerdiv p {
+  padding-bottom: 10px;
+}
