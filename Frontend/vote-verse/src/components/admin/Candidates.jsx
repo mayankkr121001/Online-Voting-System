@@ -1,15 +1,37 @@
-import { useState } from "react"
-import AddVoterCandidateForm from "./AddVoterCandidateForm"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import AddCandidateForm from "./AddCandidateForm"
 import AdminNav from "./AdminNav"
 import SideBar from "./SideBar"
 
 const Candidates = () => {
     const [addFormStatus, setAddFormStatus] = useState(false);
 
+    const [candidate, setCandidate] = useState([]);
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8000/api/candidates`)
+            .then(res => {
+                // console.log(res.data.voters);
+                setCandidate(res.data.candidates)
+            })
+            .catch(err => alert(err));
+    })
+
+    function deleleCandidateBtnClick(id){
+        axios.delete(`http://127.0.0.1:8000/api/candidates/${id}/delete`)
+        .then(res => {
+            alert(res.data.message)
+        })
+        .catch(err =>{
+            alert(err);
+        })
+    }
+
     function addCandidateBtnClick(){
         setAddFormStatus(true);
     }
-    function closeAddVoterCandidate(){
+    function closeAddCandidate(){
         setAddFormStatus(false);
 
     }
@@ -34,29 +56,24 @@ const Candidates = () => {
                                     <th>Semester</th>
                                     <th>Tools</th>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Anom</td>
-                                    <td>19</td>
-                                    <td>BCA Sem 6</td>
-                                    <td>
-                                        <button className="deleteBtn">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Megha</td>
-                                    <td>19</td>
-                                    <td>BCA Sem 6</td>
-                                    <td>
-                                        <button className="deleteBtn">Delete</button>
-                                    </td>
-                                </tr>
+                                {candidate.map((item, index) => (
+                                        <tr>
+                                            <td>{index + 1}</td>
+                                            <td>{item.name}</td>
+                                            <td>{item.roll}</td>
+                                            <td>{item.semester}</td>
+                                            <td>
+                                                <button onClick={()=>deleleCandidateBtnClick(item.id)}className="deleteBtn">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                    ))}
+                                
                                 </tbody>
                             </table>
 
                         </div>
-                        {addFormStatus && <AddVoterCandidateForm closeAddVoterCandidate={closeAddVoterCandidate}/>}
+                        {addFormStatus && <AddCandidateForm closeAddCandidate={closeAddCandidate}/>}
                     </div>
                 </div>
             </div>

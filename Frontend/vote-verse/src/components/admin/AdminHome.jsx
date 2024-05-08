@@ -1,7 +1,27 @@
+import { useEffect, useState } from "react"
 import AdminNav from "./AdminNav"
 import SideBar from "./SideBar"
+import axios from "axios";
 
 const AdminHome = () => {
+  const [totalVoters, setTotalVoters] = useState(0);
+  const [totalCandidates, setTotalCandidates] = useState(0);
+
+  useEffect(() => {
+    axios.get(`http://127.0.0.1:8000/api/voters`)
+      .then(res => {
+        // console.log(res.data.voters.length);
+        setTotalVoters(res.data.voters.length);
+      })
+      .catch(err => alert(err));
+    axios.get(`http://127.0.0.1:8000/api/candidates`)
+      .then(res => {
+        // console.log(res.data.candidates.length);
+        setTotalCandidates(res.data.candidates.length);
+      })
+      .catch(err => alert(err));
+  })
+
   return (
     <>
       <div className='adminDashboardContainer'>
@@ -12,10 +32,10 @@ const AdminHome = () => {
             <h1>Dashboard</h1>
             <div className="dashboardDetails">
               <div className="dashboardCard totalStudents">
-                <p>Total Students: 20</p>
+                <p>Total Voters: {totalVoters}</p>
               </div>
               <div className="dashboardCard totalCandidates">
-                <p>Total Canditates: 2</p>
+                <p>Total Canditates: {totalCandidates}</p>
               </div>
               <div className="dashboardCard noOfVotesDone">
                 <p>Votes Casted: 12</p>

@@ -1,15 +1,38 @@
-import { useState } from "react"
-import AddVoterCandidateForm from "./AddVoterCandidateForm"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import AddVoterForm from "./AddVoterForm"
 import AdminNav from "./AdminNav"
 import SideBar from "./SideBar"
 
 const Voters = () => {
     const [addFormStatus, setAddFormStatus] = useState(false);
 
-    function addVoterBtnClick(){
+    const [voter, setVoter] = useState([]);
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8000/api/voters`)
+            .then(res => {
+                // console.log(res.data.voters);
+                setVoter(res.data.voters)
+            })
+            .catch(err => alert(err));
+    })
+
+    function deleleVoterBtnClick(id){
+        axios.delete(`http://127.0.0.1:8000/api/voters/${id}/delete`)
+        .then(res => {
+            alert(res.data.message)
+        })
+        .catch(err =>{
+            alert(err);
+        })
+    }
+
+
+    function addVoterBtnClick() {
         setAddFormStatus(true);
     }
-    function closeAddVoterCandidate(){
+    function closeAddVoter() {
         setAddFormStatus(false);
 
     }
@@ -26,46 +49,34 @@ const Voters = () => {
                         <button onClick={addVoterBtnClick} className="addVoterBtn">Add Voter +</button>
                         <div className="votersList">
                             <table border="1">
-                            <tbody>
-                                <tr>
-                                    <th>S No</th>
-                                    <th>Name</th>
-                                    <th>Roll</th>
-                                    <th>Semester</th>
-                                    <th>Tools</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Anom</td>
-                                    <td>19</td>
-                                    <td>BCA Sem 6</td>
-                                    <td>
-                                        <button className="deleteBtn">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Megha</td>
-                                    <td>19</td>
-                                    <td>BCA Sem 6</td>
-                                    <td>
-                                        <button className="deleteBtn">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Subham</td>
-                                    <td>25</td>
-                                    <td>BCA Sem 6</td>
-                                    <td>
-                                        <button className="deleteBtn">Delete</button>
-                                    </td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th>S No</th>
+                                        <th>Name</th>
+                                        <th>Roll</th>
+                                        <th>Semester</th>
+                                        <th>Password</th>
+                                        <th>Tools</th>
+                                    </tr>
+                                    {voter.map((item, index) => (
+                                        <tr>
+                                            <td>{index + 1}</td>
+                                            <td>{item.name}</td>
+                                            <td>{item.roll}</td>
+                                            <td>{item.semester}</td>
+                                            <td>{item.password}</td>
+                                            <td>
+                                                <button onClick={()=>deleleVoterBtnClick(item.id)}className="deleteBtn">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                    ))}
+                                    
                                 </tbody>
                             </table>
 
                         </div>
-                        {addFormStatus && <AddVoterCandidateForm closeAddVoterCandidate={closeAddVoterCandidate}/>}
+                        {addFormStatus && <AddVoterForm closeAddVoter={closeAddVoter} />}
                     </div>
                 </div>
             </div>

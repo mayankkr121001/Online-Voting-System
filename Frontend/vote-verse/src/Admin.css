@@ -154,6 +154,15 @@ button {
   color: white;
   border-radius: 3px;
 }
+.addVoterBtn:hover,
+.addCandidateBtn:hover{
+  background-color: #db585c;
+}
+.addVoterBtn:active,
+.addCandidateBtn:active{
+  transform: scale(0.95);
+}
+
 
 .votersList table,
 .candidatesList table,
@@ -182,6 +191,12 @@ button {
   color: white;
   border-radius: 3px;
 }
+.deleteBtn:hover{
+  background-color: #db585c;
+}
+.deleteBtn:active{
+  transform: scale(0.95);
+}
 
 th {
   height: 60px;
@@ -192,15 +207,15 @@ td {
   height: 40px;
 }
 
-/* AddVoterForm */
-.addFormContainer {
+/* AddVoterForm and AddCandidateForm*/
+.addVoterFormContainer, .addCandidateFormContainer {
   position: absolute;
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.addFormDiv {
+.addVoterFormDiv, .addCandidateFormDiv{
   background-color: #d4e4f3;
   width: 500px;
   height: fit-content;
@@ -212,18 +227,18 @@ td {
   border-radius: 3px;
 }
 
-.closeBtn {
+.addVoterCloseBtn, .addCandidateCloseBtn {
   width: 100%;
   color: #e2474b;
   font-size: 20px;
   text-align: end;
 }
 
-.closeBtn h2 {
+.addVoterCloseBtn h2, .addCandidateCloseBtn h2{
   cursor: pointer;
 }
 
-.addFormDiv input {
+.addVoterFormDiv input, .addCandidateFormDiv input {
   width: 100%;
   padding: 8px 10px;
   font-size: 16px;
@@ -233,7 +248,7 @@ td {
   color: #2d3d48;
 }
 
-.addFormDiv button {
+.addVoterFormBtn , .addCandidateFormBtn{
   padding: 10px 40px;
   font-size: 16px;
   background-color: #e2474b;
@@ -242,6 +257,12 @@ td {
   border-radius: 3px;
   width: 200px;
   margin-top: 20px;
+}
+.addVoterFormBtn:hover, .addCandidateFormBtn:hover{
+  background-color: #db585c;
+}
+.addVoterFormBtn:active, .addCandidateFormBtn:active{
+  transform: scale(0.95);
 }
 
 /* Scheduler */
