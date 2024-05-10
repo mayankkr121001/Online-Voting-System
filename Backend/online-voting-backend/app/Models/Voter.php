@@ -15,6 +15,7 @@ class Voter extends Model
         'name',
         'roll',
         'semester',
-        'password'
+        'password',
+        'image'
     ];
 }

@@ -7,6 +7,7 @@ import WrongRouteError from './components/WrongRouteError';
 import VotingPage from './components/VotingPage';
 import ThankYouPage from './components/ThankYouPage';
 
+import AdminLogin from './components/admin/AdminLogin';
 import AdminHome from './components/admin/AdminHome';
 import Voters from './components/admin/Voters';
 import Candidates from './components/admin/Candidates';
@@ -22,6 +23,9 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/vote' element={<VotingPage/>} />
         <Route path='/thanks' element={<ThankYouPage/>} />
+
+
+        <Route path='/admin/login' element={<AdminLogin/>} />
         <Route path='/admin/dashboard' element={<AdminHome/>} />
         <Route path='/admin/voters' element={<Voters/>} />
         <Route path='/admin/candidates' element={<Candidates/>} />

@@ -35,6 +35,8 @@ class VoterController extends Controller
             'roll' => 'required|integer|max:191',
             'semester' => 'required|string|max:191',
             'password' => 'required|string|max:191',
+            'image' => 'image',
+            'roll' => 'unique:App\Models\Voter,roll'
         ]);
 
         if ($validator->fails()) {
@@ -44,11 +46,30 @@ class VoterController extends Controller
             ], 422);
         }
         else{
+
+                // $file = $request->image;
+                // $extension = $file->getClientOriginalExtension();
+                // $filename = time() . "." . $extension;
+                // $file->move(public_path('voterImages'), $filename);
+
+                $image = $request->file('image');
+
+                if ($image->isValid()) {
+                    $filename_image = uniqid() . '.' . $image->getClientOriginalExtension();
+                    $directory = public_path('voterImage');
+                    $image->move($directory, $filename_image);
+                    $url = url('public/voterImage/' . $filename_image);
+			    }
+
+
+
             $voter = Voter::create([
                 'name' => $request->name,
                 'roll' => $request->roll,
                 'semester' => $request->semester,
                 'password' => $request->password,
+                'image' => $url
+
             ]);
 
             if($voter){

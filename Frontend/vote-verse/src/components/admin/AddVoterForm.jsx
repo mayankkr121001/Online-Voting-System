@@ -2,50 +2,46 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 const AddVoterForm = ({ closeAddVoter }) => {
+    const [name, setName] = useState("");
+    const [roll, setRoll] = useState();
+    const [semester, setSemester] = useState("");
+    const [password, setPassword] = useState("");
+    const [image, setImage] = useState();
 
-    const [voter, setVoter] = useState({
-        name: "",
-        roll: "",
-        semester: "",
-        password: ""
-
-    })
-
-    function handleInput(e) {
-        setVoter({ ...voter, [e.target.name]: e.target.value })
+    function handleImageInput(e){
+        // console.log(e.target.files[0]);
+        setImage(e.target.files[0]);
     }
 
     function onVoterFormAddBtnClick(e) {
-        const data = {
-            name: voter.name,
-            roll: voter.roll,
-            semester: voter.semester,
-            password: voter.password
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("roll", roll);
+        formData.append("semester", semester);
+        formData.append("password", password);
+        formData.append("image", image);
 
-        }
+        axios.post(`http://127.0.0.1:8000/api/voters`, formData)
+            .then((res => {
+                alert(res.data.message);
+            }))
+            .catch((error) => {
+                if (error.response) {
+                    if (error.response.status === 422) {
+                        // console.log(error);
+                        alert("Fields empty! or Not unique");
+                    }
+                    if (error.response.status === 500) {
+                        alert(error.response.data.message);
+                    }
 
-        axios.post(`http://127.0.0.1:8000/api/voters`, data)
-        .then((res =>{
-            alert(res.data.message);
-        }))
-        .catch((error) =>{
-            if(error.response){
-                if(error.response.status === 422){
-                    alert("Fields empty!");
                 }
-                if(error.response.status === 500){
-                    alert(error.response.data.message);
-                }
-
-            }
-        });
-        setVoter({
-            name: "",
-            roll: "",
-            semester: "",
-            password: ""
-    
-        });
+            });
+        setName("");
+        setRoll();
+        setSemester("");
+        setPassword("");
+        setImage();
     }
 
     return (
@@ -54,10 +50,14 @@ const AddVoterForm = ({ closeAddVoter }) => {
                 <div className="addVoterCloseBtn">
                     <h2 onClick={closeAddVoter}>x</h2>
                 </div>
-                <input type="text" name="name" onChange={handleInput} value={voter.name} placeholder='Full Name' />
-                <input type="text" name="roll" onChange={handleInput} value={voter.roll} placeholder='Roll No' />
-                <input type="text" name="semester" onChange={handleInput} value={voter.semester} placeholder='Semester' />
-                <input type="text" name="password" onChange={handleInput} value={voter.password} placeholder='Set Password' />
+                <input type="text" name="name" onChange={(e) => setName(e.target.value)}  placeholder='Full Name' />
+                <input type="text" name="roll" onChange={(e) => setRoll(e.target.value)}  placeholder='Roll No' />
+                <input type="text" name="semester" onChange={(e) => setSemester(e.target.value)}  placeholder='Semester' />
+                <input type="text" name="password" onChange={(e) => setPassword(e.target.value)}  placeholder='Set Password' />
+                <div className='voterFormImageDiv'>
+                    <label>upload Image:</label>
+                    <input type="file" name="image" onChange={handleImageInput} />
+                </div>
                 <button onClick={onVoterFormAddBtnClick} className="addVoterFormBtn">Add</button>
             </div>
         </div>

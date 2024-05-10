@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->integer('roll');
             $table->string('semester');
+            $table->mediumText('image')->nullable();
+            $table->mediumText('symbol')->nullable();
             $table->timestamps();
+
         });
     }
 

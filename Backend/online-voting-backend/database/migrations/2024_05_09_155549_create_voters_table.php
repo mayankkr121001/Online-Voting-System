@@ -17,7 +17,9 @@ return new class extends Migration
             $table->integer('roll');
             $table->string('semester');
             $table->string('password');
+            $table->string('image')->nullable();
             $table->timestamps();
+
         });
     }
 

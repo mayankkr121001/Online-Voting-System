@@ -12,11 +12,11 @@ const Voters = () => {
     useEffect(() => {
         axios.get(`http://127.0.0.1:8000/api/voters`)
             .then(res => {
-                // console.log(res.data.voters);
+                // console.log(res.data.voters[2].image.replace(res.data.voters[2].image.slice(21,28), ""));
                 setVoter(res.data.voters)
             })
             .catch(err => alert(err));
-    })
+    }, [])
 
     function deleleVoterBtnClick(id){
         axios.delete(`http://127.0.0.1:8000/api/voters/${id}/delete`)
@@ -60,6 +60,7 @@ const Voters = () => {
                                     </tr>
                                     {voter.map((item, index) => (
                                         <tr>
+                                            <td><img className="voterImage" src={item.image.replace(item.image.slice(21, 28), "")} alt="" /></td>
                                             <td>{index + 1}</td>
                                             <td>{item.name}</td>
                                             <td>{item.roll}</td>

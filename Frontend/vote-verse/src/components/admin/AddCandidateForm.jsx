@@ -50,6 +50,14 @@ const AddCandidateForm = ({closeAddCandidate}) => {
                 <input type="text" name="name" onChange={handleInput} value={candidate.name} placeholder='Full Name'/>
                 <input type="text" name="roll" onChange={handleInput} value={candidate.roll} placeholder='Roll No'/>
                 <input type="text" name="semester" onChange={handleInput} value={candidate.semester} placeholder='Semester'/>
+                <div className='candidateFormImageDiv'>
+                    <label>upload Image:</label>
+                    <input type="file" name="image" onChange={handleInput} value={candidate.image} />
+                </div>
+                <div className='candidateFormSymbolDiv'>
+                    <label>upload Symbol:</label>
+                    <input type="file" name="symbol" onChange={handleInput} value={candidate.symbol} />
+                </div>
                 <button onClick={onCandidateFormAddBtnClick}  className="addCandidateFormBtn">Add</button>
             </div>
         </div>
