@@ -13,13 +13,13 @@ const AdminHome = () => {
         // console.log(res.data.voters.length);
         setTotalVoters(res.data.voters.length);
       })
-      .catch(err => alert(err));
+      .catch(err => console.log(err));
     axios.get(`http://127.0.0.1:8000/api/candidates`)
       .then(res => {
         // console.log(res.data.candidates.length);
         setTotalCandidates(res.data.candidates.length);
       })
-      .catch(err => alert(err));
+      .catch(err => console.log(err));
   })
 
   return (
@@ -38,10 +38,10 @@ const AdminHome = () => {
                 <p>Total Canditates: {totalCandidates}</p>
               </div>
               <div className="dashboardCard noOfVotesDone">
-                <p>Votes Casted: 12</p>
+                <p>Votes Casted: 0</p>
               </div>
               <div className="dashboardCard noOfVotesRemaining">
-                <p>Votes Remaining: 8</p>
+                <p>Votes Remaining: 0</p>
               </div>
             </div>
           </div>

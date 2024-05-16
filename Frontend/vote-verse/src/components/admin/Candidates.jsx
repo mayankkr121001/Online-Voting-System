@@ -13,10 +13,10 @@ const Candidates = () => {
         axios.get(`http://127.0.0.1:8000/api/candidates`)
             .then(res => {
                 // console.log(res.data.voters);
-                setCandidate(res.data.candidates)
+                setCandidate(res.data.candidates);
             })
-            .catch(err => alert(err));
-    })
+            .catch(err => console.log(err));
+    }, [candidate]) 
 
     function deleleCandidateBtnClick(id){
         axios.delete(`http://127.0.0.1:8000/api/candidates/${id}/delete`)
@@ -51,17 +51,21 @@ const Candidates = () => {
                                 <tbody>
                                 <tr>
                                     <th>S No</th>
+                                    <th>Image</th>
                                     <th>Name</th>
-                                    <th>Roll</th>
+                                    <th>Reg. No.</th>
                                     <th>Semester</th>
+                                    <th>Symbol</th>
                                     <th>Tools</th>
                                 </tr>
                                 {candidate.map((item, index) => (
                                         <tr>
                                             <td>{index + 1}</td>
+                                            <td><img className="candidateImage" src={item.image.replace(item.image.slice(21, 28), "")} alt="" /></td>
                                             <td>{item.name}</td>
-                                            <td>{item.roll}</td>
+                                            <td>{item.regNo}</td>
                                             <td>{item.semester}</td>
+                                            <td><img className="candidateSymbol" src={item.symbol.replace(item.image.slice(21, 28), "")} alt="" /></td>
                                             <td>
                                                 <button onClick={()=>deleleCandidateBtnClick(item.id)}className="deleteBtn">Delete</button>
                                             </td>

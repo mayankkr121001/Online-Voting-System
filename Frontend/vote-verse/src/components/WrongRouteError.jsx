@@ -4,8 +4,8 @@ const WrongRouteError = () => {
     return (
         <>
             <div className='wrongRouteDiv'>
-                <h1>404</h1>
-                <h2>Not Found</h2>
+                <h1>OOPs!</h1>
+                <h2>The page you are looking for couldn't be found.</h2>
             </div>
         </>
     )

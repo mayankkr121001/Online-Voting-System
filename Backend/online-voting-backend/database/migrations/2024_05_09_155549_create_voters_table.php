@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('voters', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('roll');
+            $table->string('regNo');
             $table->string('semester');
             $table->string('password');
             $table->string('image')->nullable();

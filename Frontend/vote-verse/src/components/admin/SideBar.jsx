@@ -1,8 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
+import axios from 'axios'
+import Cookies from 'universal-cookie';
+import { Navigate } from "react-router-dom";
 import man1 from "../../assets/man1.png"
 import { Link } from 'react-router-dom'
 
+import logoutIcon from "../../assets/shutdown.png"
+
 const SideBar = () => {
+    const [adminLoggedOut, setAdminLoggedOut] = useState(false);
+
+    function onLogoutClick(){
+        axios.post(`http://127.0.0.1:8000/api/adminLogout`)
+        .then(res =>{
+            // console.log(res);
+            if(res.data.success === true){
+                setAdminLoggedOut(true);
+                const cookies = new Cookies();
+                cookies.remove('adminData', { path: '/' })
+                console.log(cookies.get('adminData'));
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
     return (
         <>
             <div className='sideBarContainer'>
@@ -37,7 +60,12 @@ const SideBar = () => {
                     </Link>
                     <hr />
                 </ul>
+                <div className="adminLogoutDiv">
+                    <img src={logoutIcon} alt="logout" />
+                    <p onClick={onLogoutClick}>Logout</p>
+                </div>
             </div>
+            {adminLoggedOut && <Navigate to="/admin/login" replace />}
         </>
     )
 }

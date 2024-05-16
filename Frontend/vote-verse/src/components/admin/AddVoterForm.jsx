@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const AddVoterForm = ({ closeAddVoter }) => {
     const [name, setName] = useState("");
-    const [roll, setRoll] = useState();
+    const [regNo, setRegNo] = useState();
     const [semester, setSemester] = useState("");
     const [password, setPassword] = useState("");
     const [image, setImage] = useState();
@@ -16,7 +16,7 @@ const AddVoterForm = ({ closeAddVoter }) => {
     function onVoterFormAddBtnClick(e) {
         const formData = new FormData();
         formData.append("name", name);
-        formData.append("roll", roll);
+        formData.append("regNo", regNo);
         formData.append("semester", semester);
         formData.append("password", password);
         formData.append("image", image);
@@ -29,7 +29,7 @@ const AddVoterForm = ({ closeAddVoter }) => {
                 if (error.response) {
                     if (error.response.status === 422) {
                         // console.log(error);
-                        alert("Fields empty! or Not unique");
+                        alert("Fields empty! or Not unique!");
                     }
                     if (error.response.status === 500) {
                         alert(error.response.data.message);
@@ -38,7 +38,7 @@ const AddVoterForm = ({ closeAddVoter }) => {
                 }
             });
         setName("");
-        setRoll();
+        setRegNo();
         setSemester("");
         setPassword("");
         setImage();
@@ -51,10 +51,10 @@ const AddVoterForm = ({ closeAddVoter }) => {
                     <h2 onClick={closeAddVoter}>x</h2>
                 </div>
                 <input type="text" name="name" onChange={(e) => setName(e.target.value)}  placeholder='Full Name' />
-                <input type="text" name="roll" onChange={(e) => setRoll(e.target.value)}  placeholder='Roll No' />
+                <input type="text" name="regNo" onChange={(e) => setRegNo(e.target.value)}  placeholder='Registration No.' />
                 <input type="text" name="semester" onChange={(e) => setSemester(e.target.value)}  placeholder='Semester' />
                 <input type="text" name="password" onChange={(e) => setPassword(e.target.value)}  placeholder='Set Password' />
-                <div className='voterFormImageDiv'>
+                <div c lassName='voterFormImageDiv'>
                     <label>upload Image:</label>
                     <input type="file" name="image" onChange={handleImageInput} />
                 </div>

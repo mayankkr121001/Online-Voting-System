@@ -13,7 +13,7 @@ class Candidate extends Model
 
     protected $fillable = [
         'name',
-        'roll',
+        'regNo',
         'semester',
         'image',
         'symbol'

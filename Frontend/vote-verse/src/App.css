@@ -15,19 +15,21 @@ button{
 /* WrongRouteDiv */
 .wrongRouteDiv{
   text-align: center;
-  color: #465f71;
+  color:#57768c;
   letter-spacing: 2px;
   margin-top: 200px;
 }
 .wrongRouteDiv h1{
-  font-size: 150px;
+  font-size: 100px;
+  color:#db585c;
+  
 }
 
 
 /* NAVBAR */
 
 .navBar{
-  height: 140px;
+  height: 120px;
   width: 95%;
   margin: auto;
   display: flex;
@@ -116,7 +118,30 @@ button{
 }
 
 /* LOGIN PAGE */
-
+.loginpageContainer{
+  height: 100vh;
+}
+.adminLoginLinkDiv{
+  text-align: center;
+  margin-top: 60px;
+}
+.adminLoginLink{
+  text-decoration: none;
+}
+.adminLoginLink p{
+  display: inline-block;
+}
+.adminLoginLink p{
+  color: #465f71;
+  cursor: pointer; 
+}
+.adminLoginLink p:hover{
+ color: #57768c;
+}
+.adminLoginLink p:active{
+  transform: scale(0.95);
+  /* color: blue; */
+}
 .loginPageSection{
   display: flex;
   justify-content: space-between;
@@ -192,7 +217,7 @@ button{
 .profileSection{
   letter-spacing: 1px;
   width: 20%;
-  min-height: calc(100vh - 140px);
+  min-height: calc(100vh - 120px);
   background-color: #d4e4f3;
   color: #465f71;
   padding: 20px;
@@ -265,21 +290,30 @@ button{
   justify-content: space-between;
   align-items: center;
 }
-.CandidateDetails{
+.candidateDetails{
   display: flex;
   align-items: center;
 }
-.CandidateDetails img{
+.candidateDetails img{
   width: 100px;
   height: 100px;
 }
-.CandidateDetails h2{
+.candidateDetails h2{
   color: #465f71;
   letter-spacing: 1px;
   padding-left: 20px;
 }
-
+.candidateSymbolBtnDiv{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.candidateSymbolBtnDiv img{
+ width: 80px;
+ height: 80px;
+}
 .voteBtn{
+  height: 35px;
   letter-spacing: 2px;
   font-size: 16px;
   padding: 10px 80px;

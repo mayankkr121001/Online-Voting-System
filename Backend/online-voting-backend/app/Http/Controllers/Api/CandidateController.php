@@ -29,9 +29,11 @@ class CandidateController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:191',
-            'roll' => 'required|integer|max:191',
-            'semester' => 'required|string|max:191',
+            'name' => 'required|string|max:30',
+            'regNo' => 'required|string|max:20|unique:candidates',
+            'semester' => 'required|string|max:10',
+            'image' => 'image',
+            'symbol' => 'image',
         ]);
 
         if ($validator->fails()) {
@@ -41,10 +43,31 @@ class CandidateController extends Controller
             ], 422);
         }
         else{
+
+            $image = $request->file('image');
+            if ($image->isValid()) {
+                $filename_image = uniqid() . '.' . $image->getClientOriginalExtension();
+                $directory = public_path('candidateImage');
+                $image->move($directory, $filename_image);
+                $imageUrl = url('public/candidateImage/' . $filename_image);
+            }
+            
+
+            $symbol = $request->file('symbol');
+            
+            if ($symbol->isValid()) {
+                $filename_symbol = uniqid() . '.' . $symbol->getClientOriginalExtension();
+                $directory = public_path('candidateSymbol');
+                $symbol->move($directory, $filename_symbol);
+                $symbolUrl = url('public/candidateSymbol/' . $filename_symbol);
+			}
+
             $candidate = Candidate::create([
                 'name' => $request->name,
-                'roll' => $request->roll,
+                'regNo' => $request->regNo,
                 'semester' => $request->semester,
+                'image'=> $imageUrl,
+                'symbol'=>$symbolUrl
             ]);
 
             if($candidate){

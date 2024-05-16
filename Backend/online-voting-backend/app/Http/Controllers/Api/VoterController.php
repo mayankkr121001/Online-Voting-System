@@ -31,12 +31,11 @@ class VoterController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:191',
-            'roll' => 'required|integer|max:191',
-            'semester' => 'required|string|max:191',
-            'password' => 'required|string|max:191',
+            'name' => 'required|string|max:30',
+            'regNo' => 'required|string|max:20|unique:voters',  
+            'semester' => 'required|string|max:10',
+            'password' => 'required|string|max:8',
             'image' => 'image',
-            'roll' => 'unique:App\Models\Voter,roll'
         ]);
 
         if ($validator->fails()) {
@@ -46,11 +45,6 @@ class VoterController extends Controller
             ], 422);
         }
         else{
-
-                // $file = $request->image;
-                // $extension = $file->getClientOriginalExtension();
-                // $filename = time() . "." . $extension;
-                // $file->move(public_path('voterImages'), $filename);
 
                 $image = $request->file('image');
 
@@ -65,7 +59,7 @@ class VoterController extends Controller
 
             $voter = Voter::create([
                 'name' => $request->name,
-                'roll' => $request->roll,
+                'regNo' => $request->regNo,
                 'semester' => $request->semester,
                 'password' => $request->password,
                 'image' => $url
