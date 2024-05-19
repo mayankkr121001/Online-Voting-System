@@ -20,7 +20,7 @@ const Scheduler = () => {
         .catch(err => {
             console.log(err.response.data.message);
         })
-    }, [schedule])
+    })
 
     function onScheduleBtnClick(){
         // console.log(position, date, startTime, endTime);

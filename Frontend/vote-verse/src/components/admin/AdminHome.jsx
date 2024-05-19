@@ -6,6 +6,8 @@ import axios from "axios";
 const AdminHome = () => {
   const [totalVoters, setTotalVoters] = useState(0);
   const [totalCandidates, setTotalCandidates] = useState(0);
+  const [votesCasted, setVotesCasted] = useState(0);
+  const [votesRemaining, setVotesRemaining] = useState(0);
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/api/voters`)
@@ -20,6 +22,14 @@ const AdminHome = () => {
         setTotalCandidates(res.data.candidates.length);
       })
       .catch(err => console.log(err));
+
+      axios.get(`http://127.0.0.1:8000/api/votingStatus`)
+      .then(res => {
+          // console.log(res.data.votingStatus.length);
+          setVotesCasted(res.data.votingStatus.length)
+      })
+      .catch(err => console.log(err))
+      setVotesRemaining(totalVoters - votesCasted)
   })
 
   return (
@@ -38,10 +48,10 @@ const AdminHome = () => {
                 <p>Total Canditates: {totalCandidates}</p>
               </div>
               <div className="dashboardCard noOfVotesDone">
-                <p>Votes Casted: 0</p>
+                <p>Votes Casted: {votesCasted}</p>
               </div>
               <div className="dashboardCard noOfVotesRemaining">
-                <p>Votes Remaining: 0</p>
+                <p>Votes Remaining: {votesRemaining}</p>
               </div>
             </div>
           </div>

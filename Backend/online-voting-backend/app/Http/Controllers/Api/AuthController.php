@@ -14,36 +14,36 @@ class AuthController extends Controller
 
     function login(Request $req)
     {
-        $voter_data = Voter::where('regNo', $req->regNo)->first();
+            $voter_data = Voter::where('regNo', $req->regNo)->first();
 
-        if (!empty($voter_data)) {
-            if ($req->password == $voter_data->password) {
-                session(['voterRegNosession' => $voter_data->regNo]);
+            if (!empty($voter_data)) {
+                if ($req->password == $voter_data->password) {
+                    session(['voterRegNosession' => $voter_data->regNo]);
 
-                return response()->json([
-                    'status' => 200,
-                    'success' => true,
-                    'voters' => $voter_data,
-                    'message' => "logged in"
-                ], 200);
+                    return response()->json([
+                        'status' => 200,
+                        'success' => true,
+                        'voters' => $voter_data,
+                        'message' => "logged in"
+                    ], 200);
 
+                } else {
+                    return response()->json([
+                        'status' => 404,
+                        'success' => false,
+                        'message' => "Wrong Password"
+                    ], 404);
+
+
+                }
             } else {
                 return response()->json([
                     'status' => 404,
                     'success' => false,
-                    'message' => "Wrong Password"
+                    'message' => "Wrong registration no."
                 ], 404);
-
-
             }
 
-        } else {
-            return response()->json([
-                'status' => 404,
-                'success' => false,
-                'message' => "Wrong registration no."
-            ], 404);
-        }
     }
 
     public function logout()

@@ -25,7 +25,7 @@ Route::post('candidates', [CandidateController::class, 'store']);
 Route::delete('candidates/{id}/delete', [CandidateController::class, 'destroy']);
 
 
-Route::post('login', [AuthController::class, 'login']);
+Route::post('login', [AuthController::class, 'login'])->middleware('schedule');
 Route::post('logout', [AuthController::class, 'logout']);
 
 

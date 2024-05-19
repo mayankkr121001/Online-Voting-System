@@ -469,4 +469,6 @@ td {
 .resultWinnerdiv p {
   padding-bottom: 10px;
 }
-
+.resultWinnerdiv strong{
+  color: rgb(26, 111, 26);
+}

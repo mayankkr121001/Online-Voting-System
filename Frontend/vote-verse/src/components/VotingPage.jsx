@@ -14,6 +14,7 @@ const VotingPage = () => {
     const [semester , setSemester] = useState("");
 
     const [candidate, setCandidate] = useState([]);
+    const [position, setPosition] = useState("");
 
     const [loggedOut, setLoggedOut] = useState(false);
     const [voted, setVoted] = useState(false);
@@ -35,12 +36,21 @@ const VotingPage = () => {
 
         axios.get(`http://127.0.0.1:8000/api/votingStatus/${cookies.get('voterData').regNo}/check`)
         .then(res => {
-            console.log(res);
+            // console.log(res);
             if(res.data.success == true){
                 setVoted(true);
             }
         })
         .catch(err => console.log(err))
+
+        axios.get(`http://127.0.0.1:8000/api/scheduler`)
+        .then(res => {
+            // console.log(res);
+            setPosition(res.data.schedule[0].position);
+        })
+        .catch(err => {
+            console.log(err.response.data.message);
+        })
 
     }, [])
     function onLogoutFunc(){
@@ -72,7 +82,7 @@ const VotingPage = () => {
             'symbol': clickedCandidate[0].symbol
         })
         .then(res => {
-            console.log(res);
+            // console.log(res);
         })
         .catch(err => {
             console.log(err);
@@ -104,8 +114,8 @@ const VotingPage = () => {
 
                     </div>
                     <div className="votingSection">
-                        <h1>Running For President</h1>
-                        <div className="timer">00:00:00</div>
+                        <h1>Running For {position}</h1>
+                        {/* <div className="timer">00:00:00</div> */}
                         <div className="userCandidatesSection">
                         {candidate.map((item, index) => (
                             <div className="candidateBox">
@@ -127,7 +137,7 @@ const VotingPage = () => {
                 </div>
             </div>
             {loggedOut && <Navigate to="/login" replace />}
-            {/* {voted && <Navigate to="/thanks" replace />} */}
+            {voted && <Navigate to="/thanks" replace />}
         </>
     )
 }

@@ -76,8 +76,9 @@ const Result = () => {
 
                             <div className="resultWinnerdiv">
                                 <h2>Winner</h2>
-                                <p>Candidate Name: {winner.candidateName}</p> 
-                                <p>Reg. No: {winner.votes}</p>
+                                <p>Candidate Name: <strong>{winner.candidateName}</strong></p> 
+                                <p>Reg. No: <strong>{winner.regNo}</strong></p>
+                                <p>Votes: <strong>{winner.votes}</strong></p>
                             </div>
                         </div>
                     </div>
