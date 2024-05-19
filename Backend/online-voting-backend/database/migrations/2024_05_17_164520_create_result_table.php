@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scheduler', function (Blueprint $table) {
+        Schema::create('result', function (Blueprint $table) {
             $table->id();
-            $table->string('position');
-            $table->string('date');
-            $table->string('startTime');
-            $table->string('endTime');
+            $table->string('candidateName');
+            $table->string('regNo')->unique();
+            $table->string('semester');
+            $table->string('symbol');
+            $table->string('votes');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scheduler');
+        Schema::dropIfExists('result');
     }
 };

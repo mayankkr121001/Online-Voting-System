@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react"
 import AdminNav from "./AdminNav"
 import SideBar from "./SideBar"
+import axios from "axios"
 
 const VotingStatus = () => {
+    const [votinStatus, setVotingStatus] = useState([]);
+
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8000/api/votingStatus`)
+        .then(res => {
+            // console.log(res.data.votingStatus);
+            setVotingStatus(res.data.votingStatus)
+        })
+        .catch(err => console.log(err))
+    }, [])
+
     return (
         <>
             <div className='votingStatusContainer'>
@@ -15,25 +29,21 @@ const VotingStatus = () => {
                                     <tbody>
                                         <tr>
                                             <th>S No</th>
-                                            <th>Name</th>
-                                            <th>Roll</th>
-                                            <th>Semester</th>
-                                            <th>Status</th>
+                                            <th>Voter Name</th>
+                                            <th>Voter Reg. No.</th>
+                                            <th>Candidate Name</th>
+                                            <th>Symbol</th>
                                         </tr>
+                                        {votinStatus.map((item, index) => (
                                         <tr>
-                                            <td>1</td>
-                                            <td>Anom</td>
-                                            <td>19</td>
-                                            <td>BCA Sem 6</td>
-                                            <td>Voted</td>
+                                            <td>{index + 1}</td>
+                                            <td>{item.voterName}</td>
+                                            <td>{item.voterRegNo}</td>
+                                            <td>{item.candidateName}</td>
+                                            <td><img className="voterImage" src={item.symbol.replace(item.symbol.slice(21, 28), "")} alt="" /></td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Megha</td>
-                                            <td>19</td>
-                                            <td>BCA Sem 6</td>
-                                            <td>Not Voted</td>
-                                        </tr>
+
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>

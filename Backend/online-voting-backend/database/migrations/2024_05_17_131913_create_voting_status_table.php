@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scheduler', function (Blueprint $table) {
+        Schema::create('voting_status', function (Blueprint $table) {
             $table->id();
-            $table->string('position');
-            $table->string('date');
-            $table->string('startTime');
-            $table->string('endTime');
+            $table->string('voterName');
+            $table->string('voterRegNo');
+            $table->string('candidateName');
+            $table->string('symbol');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scheduler');
+        Schema::dropIfExists('voting_status');
     }
 };

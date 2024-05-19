@@ -28,7 +28,7 @@ const Login = () => {
                 // console.log(cookies.get('voterData'));
             })
             .catch(err => {
-                alert(err);
+                alert(err.response.data.message);
             })
     }
 

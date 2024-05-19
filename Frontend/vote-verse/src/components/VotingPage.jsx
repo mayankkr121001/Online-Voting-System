@@ -3,12 +3,7 @@ import Cookies from 'universal-cookie';
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import Navbar from './Navbar'
-import man1 from "../assets/man1.png";
-import man2 from "../assets/man2.png";
-import man3 from "../assets/man3.png"
-import login from "../assets/login.png"
-import earphone from "../assets/earphone.png"
-// import om from "../assets/om.png"
+
 
 import logoutIcon from "../assets/shutdown.png"
 
@@ -18,7 +13,10 @@ const VotingPage = () => {
     const [regNo , setRegNo] = useState("");
     const [semester , setSemester] = useState("");
 
+    const [candidate, setCandidate] = useState([]);
+
     const [loggedOut, setLoggedOut] = useState(false);
+    const [voted, setVoted] = useState(false);
 
     useEffect(() =>{
         const cookies = new Cookies();
@@ -27,6 +25,22 @@ const VotingPage = () => {
         setName(cookies.get('voterData').name);
         setRegNo(cookies.get('voterData').regNo);
         setSemester(cookies.get('voterData').semester);
+
+        axios.get(`http://127.0.0.1:8000/api/candidates`)
+            .then(res => {
+                // console.log(res.data.voters);
+                setCandidate(res.data.candidates);
+            })
+            .catch(err => console.log(err));
+
+        axios.get(`http://127.0.0.1:8000/api/votingStatus/${cookies.get('voterData').regNo}/check`)
+        .then(res => {
+            console.log(res);
+            if(res.data.success == true){
+                setVoted(true);
+            }
+        })
+        .catch(err => console.log(err))
 
     }, [])
     function onLogoutFunc(){
@@ -42,6 +56,29 @@ const VotingPage = () => {
         .catch(err => {
             alert(err);
         })
+    }
+    function onVoteBtnClickFunc(id){
+        console.log(id);
+        const clickedCandidate = candidate.filter((item) => item.id == id);
+        // console.log(clickedCandidate);
+
+        const cookies = new Cookies();
+        // console.log(cookies.get('voterData'));
+
+        axios.post(`http://127.0.0.1:8000/api/votingStatus`, {
+            'voterName': cookies.get('voterData').name,
+            'voterRegNo':cookies.get('voterData').regNo,
+            'candidateName':clickedCandidate[0].name,
+            'symbol': clickedCandidate[0].symbol
+        })
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+        setVoted(true);
     }
 
 
@@ -70,33 +107,27 @@ const VotingPage = () => {
                         <h1>Running For President</h1>
                         <div className="timer">00:00:00</div>
                         <div className="userCandidatesSection">
+                        {candidate.map((item, index) => (
                             <div className="candidateBox">
                                 <div className='candidateDetails'>
-                                    <img src={man2} alt="candidate" />
-                                    <h2>Shivam Chandrawanshi</h2>
+                                    <img src={item.image.replace(item.image.slice(21, 28), "")} alt="candidate" />
+                                    <h2>{item.name}</h2>
                                 </div>
                                 <div className='candidateSymbolBtnDiv'>
-                                    <img src={earphone} alt="symbol" />
-                                    <button className="voteBtn">Vote</button>
-                                </div>
-                            </div>
-                            <div className="candidateBox">
-                                <div className='candidateDetails'>
-                                    <img src={man3} alt="candidate" />
-                                    <h2>Avinandan Bhandari</h2>
-                                </div>
-                                <div className='candidateSymbolBtnDiv'>
-                                    <img src={login} alt="symbol" />
-                                    <button className="voteBtn">Vote</button>
+                                    <img src={item.symbol.replace(item.image.slice(21, 28), "")} alt="symbol" />
+                                    {voted ? <button disabled={true} onClick={() =>onVoteBtnClickFunc(item.id)} className="voteBtn">Voted</button>:
+                                    <button onClick={() =>onVoteBtnClickFunc(item.id)} className="voteBtn">Vote</button>}
                                 </div>
                             </div>
 
+                        ))}
                         </div>
                     </div>
 
                 </div>
             </div>
             {loggedOut && <Navigate to="/login" replace />}
+            {/* {voted && <Navigate to="/thanks" replace />} */}
         </>
     )
 }

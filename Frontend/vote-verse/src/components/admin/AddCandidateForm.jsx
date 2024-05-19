@@ -34,7 +34,7 @@ const AddCandidateForm = ({closeAddCandidate}) => {
             if(error.response){
                 if(error.response.status === 422){
                     // console.log(error);
-                    alert("Fields empty! or Not unique!");
+                    alert("Fields empty! or Not unique! or Cannot be more than two candidates!");
                 }
                 if(error.response.status === 500){
                     alert(error.response.data.message);

@@ -48,7 +48,7 @@ button {
   width: 17%;
   background-color: #1c2225;
   color: #c4c4c4;
-  padding: 30px 0px;
+  padding-top: 30px ;
 }
 
 .adminImage {
@@ -225,7 +225,8 @@ button {
 }
 
 .addVoterBtn,
-.addCandidateBtn {
+.addCandidateBtn,
+.showResultBtn {
   padding: 10px 20px;
   border: none;
   background-color: #e2474b;
@@ -233,18 +234,19 @@ button {
   border-radius: 3px;
 }
 .addVoterBtn:hover,
-.addCandidateBtn:hover{
+.addCandidateBtn:hover, .showResultBtn:hover{
   background-color: #db585c;
 }
 .addVoterBtn:active,
-.addCandidateBtn:active{
+.addCandidateBtn:active, .showResultBtn:active{
   transform: scale(0.95);
 }
 
 
 .votersList table,
 .candidatesList table,
-.votingStatusList table {
+.votingStatusList table,
+.scheduleTable table {
   width: 100%;
   border-collapse: collapse;
 
@@ -288,6 +290,12 @@ th {
 td {
   text-align: center;
   height: 120px;
+}
+.scheduleTable th{
+  height: 50px;
+}
+.scheduleTable td{
+  height: 60px;
 }
 
 /* AddVoterForm and AddCandidateForm*/
@@ -373,13 +381,21 @@ td {
 }
 
 .scheduleInputDiv {
+  width: 400px;
   padding: 20px 0px;
   display: flex;
   justify-content: space-between;
 }
+.positionInput input{
+  padding:5px 10px;
+  font-size: 16px;
+  outline: none;
+  color: #465f71;
+}
 
 .scheduleInputDiv input {
   margin-left: 20px;
+  color: #465f71;
 }
 
 .scheduleBtnDiv button {
@@ -390,6 +406,12 @@ td {
   color: white;
   border-radius: 3px;
   margin-top: 20px;
+}
+.scheduleBtnDiv button:hover{
+  background-color: #db585c;
+}
+.scheduleBtnDiv button:active{
+  transform: scale(0.95);
 }
 
 /* Voting Status */
@@ -425,6 +447,9 @@ td {
   color: #2d3d48;
   letter-spacing: 2px;
   width: 83%;
+}
+.resultSection h1{
+  text-align: center;
 }
 
 .resultCandidateList {

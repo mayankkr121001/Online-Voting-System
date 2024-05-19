@@ -62,13 +62,20 @@ class CandidateController extends Controller
                 $symbolUrl = url('public/candidateSymbol/' . $filename_symbol);
 			}
 
-            $candidate = Candidate::create([
-                'name' => $request->name,
-                'regNo' => $request->regNo,
-                'semester' => $request->semester,
-                'image'=> $imageUrl,
-                'symbol'=>$symbolUrl
-            ]);
+            if(Candidate::count() < 2){
+                $candidate = Candidate::create([
+                    'name' => $request->name,
+                    'regNo' => $request->regNo,
+                    'semester' => $request->semester,
+                    'image'=> $imageUrl,
+                    'symbol'=>$symbolUrl
+                ]);
+            }else{
+                return response()->json([
+                    'status' => 400,
+                    'message' => "Already have two candidates"
+                ], 400);
+            }
 
             if($candidate){
                 return response()->json([
@@ -96,7 +103,7 @@ class CandidateController extends Controller
         else{
             return response()->json([
                 'status' => 404,
-                'message' => "No Such Voter Found!"
+                'message' => "No Such Candidate Found!"
             ], 404);
         }
     }

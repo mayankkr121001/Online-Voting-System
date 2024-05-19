@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Candidate extends Model
+class Scheduler extends Model
 {
     use HasFactory;
-
-    protected $table = 'candidates';
+    protected $table = 'scheduler';
 
     protected $fillable = [
-        'name',
-        'regNo',
-        'semester',
-        'image',
-        'symbol'
+        'position',
+        'date',
+        'startTime',
+        'endTime'
     ];
-
 }

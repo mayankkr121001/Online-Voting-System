@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\Api\CandidateController;
 use App\Http\Controllers\Api\VoterController;
-use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\LoggedInUserController;
+use App\Http\Controllers\Api\SchedulerController;
+use App\Http\Controllers\Api\VotingStatusController;
+use App\Http\Controllers\Api\ResultController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,18 @@ Route::post('logout', [AuthController::class, 'logout']);
 
 Route::post('adminLogin', [AuthController::class, 'adminLogin']);
 Route::post('adminLogout', [AuthController::class, 'adminLogout']);
+
+
+Route::post('scheduler', [SchedulerController::class, 'store']);
+Route::get('scheduler', [SchedulerController::class, 'schduleData']);
+Route::delete('scheduler/{id}/delete', [SchedulerController::class, 'destroy']);
+
+Route::post('votingStatus', [VotingStatusController::class, 'storeVotingStatus']);
+Route::get('votingStatus', [VotingStatusController::class, 'showVotingStatus']);
+Route::get('votingStatus/{voterRegNo}/check', [VotingStatusController::class, 'showVotedFlag']);
+
+Route::get('result', [ResultController::class, 'getVotingCounts']);
+Route::get('getWinner', [ResultController::class, 'getWinner']);
 
 
 
