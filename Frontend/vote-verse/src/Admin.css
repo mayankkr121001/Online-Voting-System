@@ -472,3 +472,18 @@ td {
 .resultWinnerdiv strong{
   color: rgb(26, 111, 26);
 }
+
+.removeResultBtn {
+  padding: 10px 20px;
+  margin-left: 20px;
+  border: none;
+  background-color: #e2474b;
+  color: white;
+  border-radius: 3px;
+}
+.removeResultBtn:hover{
+  background-color: #db585c;
+}
+.removeResultBtn:active{
+  transform: scale(0.95);
+}

@@ -16,7 +16,7 @@ const Voters = () => {
                 setVoter(res.data.voters);
             })
             .catch(err => console.log(err));
-    }, [voter])
+    })
 
     function deleleVoterBtnClick(id){
         axios.delete(`http://127.0.0.1:8000/api/voters/${id}/delete`)

@@ -68,7 +68,7 @@ const VotingPage = () => {
         })
     }
     function onVoteBtnClickFunc(id){
-        console.log(id);
+        // console.log(id);
         const clickedCandidate = candidate.filter((item) => item.id == id);
         // console.log(clickedCandidate);
 

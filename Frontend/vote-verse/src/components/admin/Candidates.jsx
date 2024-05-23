@@ -16,7 +16,7 @@ const Candidates = () => {
                 setCandidate(res.data.candidates);
             })
             .catch(err => console.log(err));
-    }, [candidate]) 
+    }) 
 
     function deleleCandidateBtnClick(id){
         axios.delete(`http://127.0.0.1:8000/api/candidates/${id}/delete`)

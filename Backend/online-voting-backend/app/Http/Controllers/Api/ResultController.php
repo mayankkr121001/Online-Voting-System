@@ -37,7 +37,7 @@ class ResultController extends Controller
 
 
         }
-        $result2 = Result::all();
+        $result2 = Result::orderBy('votes', 'desc')->get();
         if ($result2) {
             return response()->json([
                 'status' => 200,

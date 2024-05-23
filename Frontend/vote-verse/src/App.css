@@ -119,11 +119,11 @@ button{
 
 /* LOGIN PAGE */
 .loginpageContainer{
-  height: 100vh;
+  /* height: 100vh; */
 }
 .adminLoginLinkDiv{
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .adminLoginLink{
   text-decoration: none;
@@ -141,6 +141,10 @@ button{
 .adminLoginLink p:active{
   transform: scale(0.95);
   /* color: blue; */
+}
+.countDownDiv{
+  text-align: center;
+  color: #465f71;
 }
 .loginPageSection{
   display: flex;
@@ -207,6 +211,29 @@ button{
 }
 .LoginBtn:active{
   transform: scale(0.95);
+}
+.resultInLoginList{
+  margin-bottom: 50px;
+}
+.resultInLoginList h1{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color:#465f71;
+}
+.resultInLoginList table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+
+}
+.resultInLoginList th{
+  height: 50px;
+  color:#465f71;
+
+}
+.resultInLoginList td{
+  height: 120px;
 }
 
 /* Voting page */

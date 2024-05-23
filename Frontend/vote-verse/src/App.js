@@ -53,7 +53,6 @@ function App() {
         {adminLoggedInStatus && <Route path='/admin/voters' element={<Voters />} />}
         {adminLoggedInStatus && <Route path='/admin/candidates' element={<Candidates />} />}
         {adminLoggedInStatus && <Route path='/admin/scheduler' element={<Scheduler />} />}
-        {adminLoggedInStatus && <Route path='/admin/votingstatus' element={<VotingStatus />} />}
         {adminLoggedInStatus && <Route path='/admin/result' element={<Result />} />}
         <Route path='*' element={<WrongRouteError />} />
       </Routes>

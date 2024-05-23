@@ -51,10 +51,6 @@ const SideBar = () => {
                         <li>Scheduler</li>
                     </Link>
                     <hr />
-                    <Link to="/admin/votingstatus" className="sideBarLink">
-                        <li>Voting Status</li>
-                    </Link>
-                    <hr />
                     <Link to="/admin/result" className="sideBarLink">
                         <li>Result</li>
                     </Link>
