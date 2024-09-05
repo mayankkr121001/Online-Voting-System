@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, Outlet } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
@@ -9,9 +9,9 @@ function AdminProtectedRoutes() {
 
     useEffect(() => {
         if (!cookies.get('adminData')) {
-            navigate("/admin/login");  // Navigate to home if 'voter-data' cookie is not present
+            navigate("/admin/login");  
         }
-    }, [navigate, cookies]);
+    }, [cookies]);
     
 
     return (

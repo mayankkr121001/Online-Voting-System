@@ -11,7 +11,7 @@ const Scheduler = () => {
 
     const [schedule, setSchedule] = useState([]);
 
-    useEffect(() =>{
+    function getSchedulerFunc(){
         axios.get(`http://127.0.0.1:8000/api/scheduler`)
         .then(res => {
             // console.log(res);
@@ -20,7 +20,11 @@ const Scheduler = () => {
         .catch(err => {
             console.log(err.response.data.message);
         })
-    }, [onScheduleBtnClick])
+
+    }
+    useEffect(() =>{
+        getSchedulerFunc();
+    }, [])
 
     function onScheduleBtnClick(){
         // console.log(position, date, startTime, endTime);
@@ -33,6 +37,7 @@ const Scheduler = () => {
         })
         .then(res => {
             alert(res.data.message);
+            getSchedulerFunc();
         })
         .catch(err => {
             alert(err.response.data.message);
@@ -47,10 +52,12 @@ const Scheduler = () => {
         axios.delete(`http://127.0.0.1:8000/api/scheduler/${id}/delete`)
         .then(res => {
             alert(res.data.message)
+            getSchedulerFunc();
         })
         .catch(err =>{
             console.log(err);
         })
+
     }
     
 
