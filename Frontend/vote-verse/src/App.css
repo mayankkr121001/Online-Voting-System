@@ -1,71 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=M+PLUS+Rounded+1c&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-body, input, button{
+
+
+body,
+input,
+button {
   font-family: "Roboto", sans-serif;
 }
-button{
+
+button {
   cursor: pointer;
 }
 
 /* WrongRouteDiv */
-.wrongRouteDiv{
+.wrongRouteDiv {
   text-align: center;
-  color:#57768c;
+  color: #57768c;
   letter-spacing: 2px;
   margin-top: 200px;
 }
-.wrongRouteDiv h1{
+
+.wrongRouteDiv h1 {
   font-size: 100px;
-  color:#db585c;
-  
+  color: #db585c;
+
 }
 
 
 /* NAVBAR */
 
-.navBar{
+.navBar {
   height: 120px;
-  width: 95%;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 100px;
+  padding: 20px 9%;
 }
-.navBar h1{
+
+.navBar h1 {
   letter-spacing: 2px;
   color: #465f71;
 }
 
-#logoImg{
+.logoImg {
   width: 70px;
   height: 70px;
 }
 
 /* Section */
 
-.landingSection{
+.landingSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  gap: 10%;
+  width: 100%;
+  padding: 20px 9%;
   margin: 20px auto;
+
 }
-.landingInfo{
-  margin-right: 76px;
+
+.landingInfo {
+  /* margin-right: 76px; */
+  width: 40%;
 }
-.landingInfo h1{
+
+.landingInfo h1 {
   font-size: 55px;
   font-weight: 700;
   letter-spacing: 2px;
   color: #465f71;
 }
-.landingInfoPara{
+
+.landingInfoPara {
   font-size: 15px;
   color: #88a7bb;
   padding: 5px 0px;
@@ -73,27 +86,31 @@ button{
   letter-spacing: 1px;
 }
 
-.lineDesign{
+.lineDesign {
   display: flex;
   flex-direction: row;
   margin: 20px 0px;
 }
-.lineDesign div{
+
+.lineDesign div {
   width: 100px;
   height: 5px;
-  
+
 }
-.lineDesign .line1{
+
+.lineDesign .line1 {
   background-color: #465f71;
 }
-.lineDesign .line2{
+
+.lineDesign .line2 {
   background-color: #e2474b;
 }
-.lineDesign .line3{
+
+.lineDesign .line3 {
   background-color: #ffbfab;
 }
 
-.clickToLoginBtn{
+.clickToLoginBtn {
   letter-spacing: 2px;
   font-size: 16px;
   padding: 10px 20px;
@@ -105,61 +122,79 @@ button{
   transition: 0.3s ease-in-out 0s;
   cursor: pointer;
 }
-.clickToLoginBtn:hover{
+
+.clickToLoginBtn:hover {
   background-color: #db585c;
 }
-.clickToLoginBtn:active{
+
+.clickToLoginBtn:active {
   transform: scale(0.95);
 }
 
-.landingImage img{
- height: 500px;
- width: 680px;
+.landingImage {
+  width: 50%;
+}
+
+.landingImage img {
+  /* height: 500px; */
+  width: 100%;
 }
 
 /* LOGIN PAGE */
-.loginpageContainer{
-  /* height: 100vh; */
-}
-.adminLoginLinkDiv{
+/* .loginpageContainer{
+  width: 100%;
+} */
+.adminLoginLinkDiv {
   text-align: center;
   margin-top: 40px;
+  margin-bottom: 10px;
 }
-.adminLoginLink{
+
+.adminLoginLink {
   text-decoration: none;
 }
-.adminLoginLink p{
+
+.adminLoginLink p {
   display: inline-block;
 }
-.adminLoginLink p{
+
+.adminLoginLink p {
   color: #465f71;
-  cursor: pointer; 
+  cursor: pointer;
 }
-.adminLoginLink p:hover{
- color: #57768c;
+
+.adminLoginLink p:hover {
+  color: #57768c;
 }
-.adminLoginLink p:active{
+
+.adminLoginLink p:active {
   transform: scale(0.95);
   /* color: blue; */
 }
-.countDownDiv{
+
+.countDownDiv {
   text-align: center;
   color: #465f71;
 }
-.loginPageSection{
+
+.loginPageSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 85%;
-  margin: 20px auto;
+  gap: 10%;
+  width: 100%;
+  padding: 15px 9%;
 }
 
-.loginPageImage img{
-  width: 670px;
-  height: 100%;
+.loginPageImage {
+  width: 50%;
 }
 
-.loginDiv{
+.loginPageImage img {
+  width: 100%;
+}
+
+.loginDiv {
   width: 40%;
   height: fit-content;
   padding: 20px;
@@ -169,15 +204,17 @@ button{
   gap: 20px;
 }
 
-.loginIcon{
+.loginIcon {
   height: 45px;
   width: 45px;
 }
-.loginDiv h1{
+
+.loginDiv h1 {
   color: #465f71;
   padding-bottom: 30px;
 }
-.loginDiv input{
+
+.loginDiv input {
   width: 100%;
   padding: 12px 15px;
   letter-spacing: 1px;
@@ -187,18 +224,21 @@ button{
   color: #465f71;
   font-size: 15px;
 }
-.loginDiv input::placeholder{
+
+.loginDiv input::placeholder {
   color: #465f71;
   font-size: 14px;
 }
-.loginDiv input:active{
+
+.loginDiv input:active {
   border: 1px solid #b3cedf;
 }
 
-.LoginBtn{
+.LoginBtn,
+.ResultBtn {
   letter-spacing: 2px;
   font-size: 16px;
-  padding: 10px 80px;
+  padding: 10px 77px;
   margin-top: 30px;
   background-color: #e2474b;
   color: white;
@@ -206,42 +246,79 @@ button{
   border-radius: 5px;
   transition: 0.3s ease-in-out 0s;
 }
-.LoginBtn:hover{
+
+.ResultBtn {
+  margin-top: 0px;
+  background-color: #303f9e;
+
+}
+
+.LoginBtn:hover {
   background-color: #db585c;
 }
-.LoginBtn:active{
+
+.ResultBtn:hover {
+  background-color: #4957b4;
+}
+
+.LoginBtn:active,
+.ResultBtn:active {
   transform: scale(0.95);
 }
-.resultInLoginList{
+
+.userResultSection {
+  width: 80%;
+  margin: auto;
+  /* text-align: center; */
+}
+
+.resultInLoginList {
   margin-bottom: 50px;
 }
-.resultInLoginList h1{
+
+.resultInLoginList h1 {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  color:#465f71;
+  color: #465f71;
 }
+
 .resultInLoginList table {
-  width: 90%;
+  width: 100%;
   margin: auto;
   border-collapse: collapse;
 
 }
-.resultInLoginList th{
-  height: 50px;
-  color:#465f71;
 
+.resultInLoginList th {
+  height: 50px;
+  color: #465f71;
+  padding: 0px 10px;
 }
-.resultInLoginList td{
+
+.resultInLoginList td {
   height: 120px;
 }
 
+.UserResultWinnerdiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.UserResultWinnerdiv>p>strong {
+  padding-left: 10px;
+  color: #1db956;
+
+}
+
 /* Voting page */
-.profileVotingDiv{
+.profileVotingDiv {
   display: flex;
   width: 100vw;
 }
-.profileSection{
+
+.profileSection {
   letter-spacing: 1px;
   width: 20%;
   min-height: calc(100vh - 120px);
@@ -251,52 +328,63 @@ button{
   font-size: 18px;
   font-weight: 500;
 }
-.profilePicDiv{
+
+.profilePicDiv {
   text-align: center;
   margin-bottom: 20px;
 }
-.profilePicDiv > img{
+
+.profilePicDiv>img {
   width: 100px;
   height: 100px;
 }
-.profileSection > p{
+
+.profileSection>p {
   padding: 5px;
 }
-.lineAboveLogout{
+
+.lineAboveLogout {
   width: 80%;
   height: 1px;
   background-color: #465f71;
   margin-top: 20px;
 }
-.logoutDiv{
+
+.logoutDiv {
   display: flex;
   gap: 10px;
   margin-top: 20px;
 }
-.logoutDiv img{
+
+.logoutDiv img {
   width: 20px;
   height: 20px;
 }
-.logoutDiv p:hover{
+
+.logoutDiv p:hover {
   cursor: pointer;
   color: #57788f;
 }
-.logoutDiv p:active{
+
+.logoutDiv p:active {
   transform: scale(0.99);
 }
-.votingSection{
+
+.votingSection {
   width: 80%;
   padding-top: 20px;
   position: relative;
 }
-.votingSection > h1 {
+
+.votingSection>h1 {
   text-align: center;
   letter-spacing: 2px;
   color: #465f71;
   padding-bottom: 20px;
 
 }
-.timer{
+
+.timer {
   position: absolute;
   top: 2.7%;
   right: 10%;
@@ -304,12 +392,14 @@ button{
   color: #465f71;
   font-weight: 500;
 }
-.userCandidatesSection{
+
+.userCandidatesSection {
   padding: 0px 20px;
 }
-.candidateBox{
+
+.candidateBox {
   width: 97%;
-  margin:20px  auto;
+  margin: 20px auto;
   padding: 20px 40px;
   height: fit-content;
   background-color: #d4e4f3;
@@ -317,29 +407,35 @@ button{
   justify-content: space-between;
   align-items: center;
 }
-.candidateDetails{
+
+.candidateDetails {
   display: flex;
   align-items: center;
 }
-.candidateDetails img{
+
+.candidateDetails img {
   width: 100px;
   height: 100px;
 }
-.candidateDetails h2{
+
+.candidateDetails h2 {
   color: #465f71;
   letter-spacing: 1px;
   padding-left: 20px;
 }
-.candidateSymbolBtnDiv{
+
+.candidateSymbolBtnDiv {
   display: flex;
   align-items: center;
   gap: 30px;
 }
-.candidateSymbolBtnDiv img{
- width: 80px;
- height: 80px;
+
+.candidateSymbolBtnDiv img {
+  width: 80px;
+  height: 80px;
 }
-.voteBtn{
+
+.voteBtn {
   height: 35px;
   letter-spacing: 2px;
   font-size: 16px;
@@ -350,39 +446,45 @@ button{
   border-radius: 5px;
   transition: 0.3s ease-in-out 0s;
 }
-.voteBtn:hover{
+
+.voteBtn:hover {
   background-color: #db585c;
 }
-.voteBtn:active{
+
+.voteBtn:active {
   transform: scale(0.95);
 }
 
 /* Thankyou page */
-.thanksDiv{
+.thanksDiv {
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.thankyouImage img{
-    position: relative;
-  }
 
-.thankYouText{
+.thankyouImage img {
+  position: relative;
+}
+
+.thankYouText {
   font-size: 40px;
   color: #465f71;
 }
-.votedText{
+
+.votedText {
   font-size: 20px;
   color: #809aad;
 }
-.thankyouTextDiv{
+
+.thankyouTextDiv {
   position: absolute;
   bottom: 190px;
   text-align: center;
 }
-.thanksLogoutBtn{
+
+.thanksLogoutBtn {
   height: 35px;
   letter-spacing: 2px;
   font-size: 16px;
@@ -394,9 +496,145 @@ button{
   border-radius: 5px;
   transition: 0.3s ease-in-out 0s;
 }
-.thanksLogoutBtn:hover{
+
+.thanksLogoutBtn:hover {
   background-color: #db585c;
 }
-.thanksLogoutBtn:active{
+
+.thanksLogoutBtn:active {
   transform: scale(0.95);
+}
+
+
+
+/* -------------------- Responsiveness ----------------------- */
+
+@media screen and (max-width:1375px) {
+  .landingInfo h1 {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width:1100px) {
+  .landingInfo h1 {
+    font-size: 35px;
+  }
+
+  .landingInfoPara {
+    font-size: 13px;
+  }
+
+  .lineDesign div {
+    width: 50px;
+    height: 5px;
+
+  }
+
+  .landingSection {
+    margin: 80px auto;
+  }
+  .profileSection {
+    letter-spacing: 1px;
+    width: 20%;
+    min-height: calc(100vh - 120px);
+    background-color: #d4e4f3;
+    color: #465f71;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width:850px) {
+  .landingSection {
+    flex-direction: column;
+    align-items: baseline;
+    gap: 80px;
+    ;
+  }
+
+  .loginPageSection {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 70px;
+    padding: 15px 0%;
+
+  }
+
+  .landingInfo {
+    width: 80%;
+  }
+
+  .loginDiv {
+    width: 80%;
+    margin-top: 20px;
+    padding: 20px 0px;
+  }
+
+  .landingImage {
+    width: 100%;
+  }
+
+  .loginPageImage {
+    width: 100%;
+  }
+
+  .adminLoginLinkDiv {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  .resultInLoginList th {
+    font-size: 13px;
+  }
+  .resultInLoginList td {
+    font-size: 13px;
+  }
+
+  .profileVotingDiv {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100vw;
+  }
+  .profileSection{
+    width: 100%;
+    min-height: fit-content;
+  }
+  .votingSection {
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+  }
+  .candidateBox {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width:600px){
+  .userResultSection {
+    width: 90%;
+  }
+  .navBar h1 {
+    font-size: 25px;
+  }
+  .logoImg {
+    width: 50px;
+    height: 50px;
+  }
+  .candidateSymbolBtnDiv img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .voteBtn {
+    height: 35px;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 10px 50px;
+    background-color: #e2474b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out 0s;
+  }
 }

@@ -15,7 +15,6 @@ const Login = () => {
     const [countDownArray, setCountDownArray] = useState([]);
     const [voteEndsFlag, setVoteEndsFlag] = useState(false);
 
-    const [result, setResult] = useState([]);
     const [resultFlag, setResultFlag] = useState(false);
 
     useEffect(() => {
@@ -38,11 +37,10 @@ const Login = () => {
             })
 
         const cookies = new Cookies();
-        console.log(cookies.get('resultData'));
-        if(cookies.get('resultData')){
-            setResult(cookies.get('resultData'));
+        // console.log(cookies.get('resultData'));
+        if (cookies.get('resultData')) {
             setResultFlag(true);
-        }else{
+        } else {
             setResultFlag(false);
         }
     }, [])
@@ -80,9 +78,9 @@ const Login = () => {
             clearInterval(timeInterval);
         }
 
-        if(new Date().getTime() - new Date(tempArray[0], tempArray[1], tempArray[2], tempArray[5], tempArray[6]).getTime() > 0){
+        if (new Date().getTime() - new Date(tempArray[0], tempArray[1], tempArray[2], tempArray[5], tempArray[6]).getTime() > 0) {
             setVoteEndsFlag(true);
-        }else{
+        } else {
             setVoteEndsFlag(false);
         }
 
@@ -114,7 +112,7 @@ const Login = () => {
             <div className="loginpageContainer">
                 <Navbar />
                 <div className="countDownDiv">
-                    {voteEndsFlag ? <h3>Voting has ended!!!</h3> :<h3>Voting will start in:  {countDownArray[0]} Days - {countDownArray[1]} Hours - {countDownArray[2]} Minutes - {countDownArray[3]} Seconds</h3>}
+                    {voteEndsFlag ? <h3>Voting has ended!!!</h3> : <h3>Voting will start in:  {countDownArray[0]} Days - {countDownArray[1]} Hours - {countDownArray[2]} Minutes - {countDownArray[3]} Seconds</h3>}
                 </div>
                 <div className='loginPageSection'>
                     <div className="loginPageImage">
@@ -130,41 +128,16 @@ const Login = () => {
                         <div className="LoginBtnDiv">
                             <button onClick={onLoginBtnClick} className="LoginBtn">Login</button>
                         </div>
+
+                        {resultFlag && <div className="ResultBtnDiv">
+                            <Link to="/result"><button className="ResultBtn">Result</button></Link>
+                            </div>}
                     </div>
                 </div>
                 <div className="adminLoginLinkDiv">
                     <Link to="/admin/login" className="adminLoginLink"><p>Admin Login!</p></Link>
                 </div>
 
-                {resultFlag &&
-                <div className="resultInLoginList">
-                    <h1>Result</h1>
-                    <table border="1">
-                        <tbody>
-                            <tr>
-                                <th>S No</th>
-                                <th>Candidate Name</th>
-                                <th>Reg. No.</th>
-                                <th>Semester</th>
-                                <th>Symbol</th>
-                                <th>Votes</th>
-                            </tr>
-
-                            {result.map((item, index) => (
-                                <tr>
-                                    <td>{index + 1}</td>
-                                    <td>{item.candidateName}</td>
-                                    <td>{item.regNo}</td>
-                                    <td>{item.semester}</td>
-                                    <td><img className="voterImage" src={item.symbol.replace(item.symbol.slice(21, 28), "")} alt="" /></td>
-                                    <td>{item.votes}</td>
-                                </tr>
-
-                            ))}
-
-                        </tbody>
-                    </table>
-                </div>}
             </div>
             {loggedIn && <Navigate to="/vote" replace />}
         </>
