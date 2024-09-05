@@ -42,11 +42,6 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
-            // 'host' => env('DB_HOST', 'sql12.freesqldatabase.com'),
-            // 'port' => env('DB_PORT', '3306'),
-            // 'database' => env('DB_DATABASE', 'sql12729469'),
-            // 'username' => env('DB_USERNAME', 'sql12729469'),
-            // 'password' => env('DB_PASSWORD', 'Xw3uLZbq6M'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'laravel'),
